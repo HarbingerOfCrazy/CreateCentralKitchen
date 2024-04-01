@@ -151,6 +151,7 @@ dependencies {
     //implementation fg.deobf("curse.maven:exquisito-859262:${exquisito_file}") // I believe the author disables 3rd party download
     //independent mods
     implementation fg.deobf("curse.maven:overweight-farming-591666:${overweight_farming_file}")
+    implementation fg.deobf("curse.maven:selene-499980:${snowy_spirit_lib_file}")
     implementation fg.deobf("curse.maven:snowy-spirit-566142:${snowy_spirit_file}")
 
     // Fix Botarium incompatible issue
@@ -205,7 +206,7 @@ void processJar(Jar jarTask) {
     jarTask.configure {
         from "LICENSE"
         exclude ".cache"
-        exclude "assets/create_central_kitchen/lang/unfinished"
+        exclude "assets/create_central_kitchen/lang-gen"
         exclude "assets/create_central_kitchen/lang/default"
 
         manifest {
