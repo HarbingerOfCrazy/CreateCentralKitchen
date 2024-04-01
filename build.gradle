@@ -178,18 +178,18 @@ mixin {
     debug.export = true
 }
 
+publishMods {
+    file = tasks.jarJar.archiveFile
+    changelog = new File("changelog/${mod_version}.md").text
+    version = mod_version
+    type = STABLE
+    displayName = "CCK ${mod_version} for Create ${minecraft_version}-${create_version}"
+    modLoaders.add("forge")
+
     curseforge {
         projectId = "820977"
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
-        publishMods {
-            file = tasks.jarJar.archiveFile
-            changelog = new File("changelog/${mod_version}.md").text
-            version = mod_version
-            type = STABLE
-            displayName = "CCK ${mod_version} for Create ${minecraft_version}-${create_version}"
-            modLoaders.add("forge")
-
-            minecraftVersions.add(minecraft_version)
+        minecraftVersions.add(minecraft_version)
         requires("create")
     }
 
