@@ -103,7 +103,7 @@ public class PeculiarsRecipes extends DatapackRecipes {
             .output(PeculiarsFluidEntries.PASSIONFRUIT_ICE_CREAM.get(), 500)
             .require(NeapolitanItems.ICE_CUBES.get())
             .require(Items.SUGAR)
-            .require(AtmosphericItems.PASSIONFRUIT.get())
+            .require(AtmosphericItems.PASSION_FRUIT.get())
             .require(Tags.Fluids.MILK, 250)),
         CRAFTING_PASSIONFRUIT_CAKE_FROM_DOUGH = atmospheric(shaped("passionfruit_cake_from_dough")
             .output(PeculiarsItems.PASSIONFRUIT_CAKE.get())
@@ -111,7 +111,7 @@ public class PeculiarsRecipes extends DatapackRecipes {
             .define('s', Items.SUGAR)
             .define('e', ForgeTags.EGGS)
             .define('w', ForgeTags.DOUGH_WHEAT)
-            .define('#', AtmosphericItems.PASSIONFRUIT.get())
+            .define('#', AtmosphericItems.PASSION_FRUIT.get())
             .pattern("mmm")
             .pattern("ses")
             .pattern("#w#")),
@@ -122,12 +122,12 @@ public class PeculiarsRecipes extends DatapackRecipes {
             .require(Items.SUGAR)
             .require(ForgeItemTags.FLOUR__WHEAT.tag)
             .require(ForgeItemTags.FLOUR__WHEAT.tag)
-            .require(AtmosphericItems.PASSIONFRUIT.get())
-            .require(AtmosphericItems.PASSIONFRUIT.get())
+            .require(AtmosphericItems.PASSION_FRUIT.get())
+            .require(AtmosphericItems.PASSION_FRUIT.get())
             .require(Tags.Fluids.MILK, 1000)),
         MIXING_PASSIONFRUIT_MILKSHAKE = atmospheric(mixing("passionfruit_milkshake")
             .output(PeculiarsFluidEntries.PASSIONFRUIT_MILKSHAKE.get(), 750)
-            .require(AtmosphericItems.PASSIONFRUIT.get())
+            .require(AtmosphericItems.PASSION_FRUIT.get())
             .require(NeapolitanFluidEntries.VANILLA_ICE_CREAM.get(), 500)
             .require(Tags.Fluids.MILK, 250)),
         MIXING_PASSIONFRUIT_MILKSHAKE_FROM_ICE_CREAM = atmospheric(mixing("passionfruit_milkshake_from_ice_cream")

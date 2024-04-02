@@ -2,28 +2,28 @@
   "type": "create:compacting",
   "ingredients": [
     {
-      "item": "atmospheric:passionfruit"
+      "item": "atmospheric:passion_fruit"
     },
     {
-      "item": "atmospheric:passionfruit"
+      "item": "atmospheric:passion_fruit"
     },
     {
-      "item": "atmospheric:passionfruit"
+      "item": "atmospheric:passion_fruit"
     },
     {
-      "item": "atmospheric:passionfruit"
+      "item": "atmospheric:passion_fruit"
     },
     {
-      "item": "atmospheric:passionfruit"
+      "item": "atmospheric:passion_fruit"
     },
     {
-      "item": "atmospheric:passionfruit"
+      "item": "atmospheric:passion_fruit"
     },
     {
-      "item": "atmospheric:passionfruit"
+      "item": "atmospheric:passion_fruit"
     },
     {
-      "item": "atmospheric:passionfruit"
+      "item": "atmospheric:passion_fruit"
     },
     {
       "tag": "forge:eggs"
@@ -32,7 +32,7 @@
   "results": [
     {
       "count": 8,
-      "item": "atmospheric:passionfruit_tart"
+      "item": "atmospheric:passion_fruit_tart"
     }
   ]
 }
