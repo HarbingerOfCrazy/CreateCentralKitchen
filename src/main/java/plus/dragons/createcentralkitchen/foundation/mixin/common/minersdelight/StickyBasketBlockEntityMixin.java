@@ -13,16 +13,15 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import plus.dragons.createcentralkitchen.api.block.entity.SmartBlockEntityLike;
-import plus.dragons.createcentralkitchen.content.logistics.block.basket.SmartBasketBlockEntity;
+import plus.dragons.createcentralkitchen.content.logistics.block.basket.SmartStickyBasketBlockEntity;
 import plus.dragons.createcentralkitchen.foundation.config.CentralKitchenConfigs;
 import vectorwing.farmersdelight.common.block.entity.Basket;
-import vectorwing.farmersdelight.common.block.entity.BasketBlockEntity;
 
 @Mixin(StickyBasketBlockEntity.class)
 public abstract class StickyBasketBlockEntityMixin extends RandomizableContainerBlockEntity implements Basket, SmartBlockEntityLike {
 
     @Unique
-    private final SmartBlockEntity smartBlockEntity = new SmartBasketBlockEntity((BasketBlockEntity) (Object) this);
+    private final SmartBlockEntity smartBlockEntity = new SmartStickyBasketBlockEntity((StickyBasketBlockEntity) (Object) this);
 
     private StickyBasketBlockEntityMixin(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
