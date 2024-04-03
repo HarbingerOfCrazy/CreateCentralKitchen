@@ -9,7 +9,9 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.ForgeRegistries;
+import plus.dragons.createcentralkitchen.CentralKitchen;
 import plus.dragons.createcentralkitchen.entry.item.FDItemEntries;
 import plus.dragons.createcentralkitchen.entry.item.FRItemEntries;
 import plus.dragons.createcentralkitchen.entry.item.MDItemEntries;
@@ -47,6 +49,7 @@ public class CckCreativeModeTab extends CreativeModeTab {
         List<Item> items = new ArrayList<>();
         items.addAll(this.collectItems());
         items.addAll(this.collectBlocks());
+        items.addAll(this.collectFluid());
         filterAndOutput(pItems,items);
     }
 
@@ -73,7 +76,7 @@ public class CckCreativeModeTab extends CreativeModeTab {
         while(var3.hasNext()) {
             RegistryEntry<Item> entry = (RegistryEntry)var3.next();
             Item item = entry.get();
-            if (!(item instanceof BlockItem)) {
+            if (!(item instanceof BlockItem) && !(item instanceof BucketItem)) {
                 items.add(item);
             }
         }
@@ -81,14 +84,31 @@ public class CckCreativeModeTab extends CreativeModeTab {
         return items;
     }
 
+    private List<Item> collectFluid() {
+        List<Item> items = new ReferenceArrayList();
+        Iterator var3 = REGISTRATE.getAll(ForgeRegistries.FLUIDS.getRegistryKey()).iterator();
+
+        while(var3.hasNext()) {
+            RegistryEntry<ForgeFlowingFluid> entry = (RegistryEntry)var3.next();
+            ForgeFlowingFluid fluid = entry.get();
+            if (fluid.getBucket()!=Items.AIR && !items.contains(fluid.getBucket())) {
+                items.add(fluid.getBucket());
+            }
+        }
+
+        return items;
+    }
+
+
     private static void filterAndOutput(NonNullList<ItemStack> pItems, List<Item> items) {
         Iterator var4 = items.iterator();
         while(var4.hasNext()) {
             Item item = (Item)var4.next();
-            if(item.toString().contains("incomplete")) continue;
-            if(item.toString().contains("guide")) continue;
-            if(item.toString().contains("blaze_burner")) continue;
-            if(item.toString().contains("creative_tab_icon")) continue;
+            var id = ForgeRegistries.ITEMS.getKey(item).toString();
+            if(id.contains("incomplete")) continue;
+            if(id.contains("guide")) continue;
+            if(id.contains("blaze_burner")) continue;
+            if(id.contains("creative_tab_icon")) continue;
             pItems.add(item.getDefaultInstance());
         }
         if (Mods.isLoaded(Mods.FD))
